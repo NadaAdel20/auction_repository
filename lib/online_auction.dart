@@ -47,7 +47,8 @@ class _OnlineAuctionScreenState extends State<OnlineAuctionScreen> {
                 builder: (context)=> NotificationScreen(),
               ),);
             },
-            icon: (Icon(Icons.notifications)),
+            icon: (Icon(Icons.notifications,
+             )),
           ),
           IconButton(
             onPressed: () {},

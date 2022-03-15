@@ -18,6 +18,7 @@ class _OnlineAuctionScreenState extends State<OfflineAuctionScreen> {
   int LikeCount = 1;
   int Add = 500;
   int AddCount = 1;
+  int Tickets=10;
   @override
   int currentIndex = 0;
 
@@ -33,21 +34,22 @@ class _OnlineAuctionScreenState extends State<OfflineAuctionScreen> {
           ),
         ),
         actions: [
-          IconButton(
+         /* IconButton(
             onPressed: () {
               Navigator.push(context, MaterialPageRoute(
                 builder: (context)=> ShoppingCartScreen(),
               ),);
             },
             icon: Icon(Icons.shopping_cart_rounded),
-          ),
+          ),*/
           IconButton(
             onPressed: () {
               Navigator.push(context, MaterialPageRoute(
                 builder: (context)=> NotificationScreen(),
               ),);
             },
-            icon: (Icon(Icons.notifications)),
+            icon: (Icon(Icons.notifications,
+            )),
           ),
           IconButton(
             onPressed: () {},
@@ -149,27 +151,21 @@ class _OnlineAuctionScreenState extends State<OfflineAuctionScreen> {
                                   ),
                                 ],
                               ),
-                              /*Container(
-                                width: MediaQuery.of(context).size.width*0.3,
-                                height:150,
-                                margin: new EdgeInsets.fromLTRB(200,0,0,0),
-                               // color: Colors.black87,
-                                decoration: BoxDecoration(
-                    image: DecorationImage(
-                          image:  NetworkImage("https://i.pinimg.com/564x/70/f9/dd/70f9dd78e5d27729b98d74cdd4c78484.jpg"),),
-                  ),
-                              ),*/
+
                               Container(
                                 alignment: Alignment.topLeft,
                                 //margin: EdgeInsets.fromLTRB(12,5,320,400),
                                 child: Text(
-                                  'Title',
+                                  'Auction Name',
                                   style: TextStyle(
-                                    fontSize: 15,
+                                    fontSize: 20,
                                     color: Colors.teal[600],
-                                    fontWeight: FontWeight.w600,
+                                    fontWeight: FontWeight.bold,
                                   ),
                                 ),
+                              ),
+                              SizedBox(
+                                height: 10,
                               ),
                               Container(
                                 alignment: Alignment.topLeft,
@@ -186,18 +182,7 @@ class _OnlineAuctionScreenState extends State<OfflineAuctionScreen> {
                               SizedBox(
                                 height: 15,
                               ),
-                              Container(
-                                alignment: Alignment.topLeft,
-                                //margin: EdgeInsets.fromLTRB(12,0,320,400),
-                                child: Text(
-                                  '4 Days - 12 Hours',
-                                  style: TextStyle(
-                                    fontSize: 15,
-                                    color: Colors.teal[600],
-                                    fontWeight: FontWeight.w600,
-                                  ),
-                                ),
-                              ),
+
 
                               Row(
 
@@ -260,22 +245,21 @@ class _OnlineAuctionScreenState extends State<OfflineAuctionScreen> {
                                           ),
                                         )),
                                   ),*/
-                                  Text('$Add'),
+                                  Text('$Tickets'),
                                   Container(
                                     height: 30,
                                     width: 40,
                                     child: FloatingActionButton(
                                       onPressed: () {
                                         setState(() {
-                                          Add++;
-                                          //print(Likes);
+                                          Tickets--;
                                         });
                                       },
-                                      heroTag: 'Add',
+                                      heroTag: 'Tickets-',
                                       backgroundColor: Colors.teal,
                                       mini: true,
                                       child: Icon(
-                                        Icons.candlestick_chart_rounded,
+                                          Icons.collections_bookmark_outlined,
                                         color: Colors.black,
                                         size: 18,
                                       ),
@@ -296,7 +280,7 @@ class _OnlineAuctionScreenState extends State<OfflineAuctionScreen> {
                                   mainAxisAlignment: MainAxisAlignment.end,
                                   children: [
                                     Container(
-                                      child: Text('First Price',
+                                      child: Text('Time of Auction',
                                         style: TextStyle(
                                           fontSize: 20,
                                           color: Colors.teal,
@@ -320,28 +304,15 @@ class _OnlineAuctionScreenState extends State<OfflineAuctionScreen> {
                                       height: 5,
                                     ),
                                     Container(
-                                      child: Text('Category',
+                                      child: Text('Tickets',
                                         style: TextStyle(
                                           fontSize: 20,
                                           color: Colors.teal,
                                           fontWeight: FontWeight.w600,
                                         ),),
                                     ),
-                                    Container(
-                                      width: MediaQuery.of(context).size.width*0.2,
-                                      decoration: BoxDecoration(
-                                        borderRadius: BorderRadius.circular(15),
-                                        // color: Colors.teal[400],
-                                      ),
-                                      child: TextButton(onPressed: () {},
-                                        child: Text('Rate',
-                                          style: TextStyle(
-                                            color: Colors.teal,
-                                            fontSize: 20,
-                                          ),),
-                                        //color: Colors.teal,
-
-                                      ),
+                                    SizedBox(
+                                      height: 15,
                                     ),
 
                                   ],
