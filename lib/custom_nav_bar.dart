@@ -17,15 +17,16 @@ class _CustomButtomState extends State<CustomButtom> {
       ];*/
   @override
   int index = 0;
-final screens =
+ /* final screens =
   [
     RaderScreen(),
     OnlineAuctionScreen(),
-  ];
+  ];*/
 
-  Widget build(BuildContext context)=> Scaffold(
-      body: screens[index],
-       bottomNavigationBar:NavigationBarTheme(
+  Widget build(BuildContext context) {
+    return
+      //body: screens[index],
+       NavigationBarTheme(
         data: NavigationBarThemeData(
           indicatorColor: Colors.teal.shade100,
           labelTextStyle: MaterialStateProperty.all(
@@ -41,13 +42,19 @@ final screens =
             onDestinationSelected: (index)=> setState(() =>this.index = index),
             destinations: [
           NavigationDestination(icon: Icon(Icons.home), label: 'Home'),
-          NavigationDestination(icon: Icon(Icons.radar), label: 'Radar'),
+          GestureDetector(
+            onTap: (){
+              Navigator.push(context, MaterialPageRoute(
+                builder: (context)=> RaderScreen(),
+              ),);
+            },
+              child: NavigationDestination(icon: Icon(Icons.radar), label: 'Radar')),
           NavigationDestination(icon: Icon(Icons.add), label: 'Add'),
           NavigationDestination(icon: Icon(Icons.message), label: 'Message'),
           NavigationDestination(
               icon: Icon(Icons.person_rounded), label: 'Profile'),
         ]),
-       ),
+
     );
     // body:screens[currentIndex],
     /*  BottomNavigationBar(
@@ -97,4 +104,4 @@ final screens =
     ],
     );*/
   }
-
+}
