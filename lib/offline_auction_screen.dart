@@ -1,18 +1,22 @@
 import 'package:auction/comments_screen.dart';
 import 'package:auction/notification_screen.dart';
+import 'package:auction/search_screen.dart';
 import 'package:auction/shopping_cart_screen.dart';
+import 'package:auction/sort_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+
+import 'custom_nav_bar.dart';
 
 class OfflineAuctionScreen extends StatefulWidget {
   const OfflineAuctionScreen({Key? key}) : super(key: key);
 
   @override
-  _OnlineAuctionScreenState createState() => _OnlineAuctionScreenState();
+  _OfflineAuctionScreenState createState() => _OfflineAuctionScreenState();
 }
 
-class _OnlineAuctionScreenState extends State<OfflineAuctionScreen> {
+class _OfflineAuctionScreenState extends State<OfflineAuctionScreen> {
   bool isLiked = false;
   int Likes = 10;
   int LikeCount = 1;
@@ -20,7 +24,6 @@ class _OnlineAuctionScreenState extends State<OfflineAuctionScreen> {
   int AddCount = 1;
   int Tickets=10;
   @override
-  int currentIndex = 0;
 
   Widget build(BuildContext context) {
     return Scaffold(
@@ -55,51 +58,75 @@ class _OnlineAuctionScreenState extends State<OfflineAuctionScreen> {
             onPressed: () {},
             icon: (Icon(Icons.category)),
           ),
-          IconButton(
-            onPressed: () {},
-            icon: (Icon(Icons.sort)),
-          ),
+          PopupMenuButton(
+              tooltip: 'Menu',
+              child: Icon(
+                Icons.more_vert,
+                size: 28.0,
+                color: Colors.white,
+              ),
+              itemBuilder: (context) => [
+                PopupMenuItem(
+                    child: GestureDetector(
+                      onTap: () {
+                        Navigator.push(context,MaterialPageRoute(
+                            builder: (context) => SearchScreen(),
+                          ),
+                        );
+                      },
+                      child: Row(
+                        children: [
+                          (Icon(
+                            Icons.search,
+                            color: Colors.teal,
+                            size: 30,
+                          )),
+                          SizedBox(
+                            width: 10,
+                          ),
+                          Text(
+                            'Search',
+                            style: TextStyle(
+                              color: Colors.teal,
+                              fontWeight: FontWeight.w500,
+                              fontSize: 20,
+                            ),
+                          ),
+                        ],
+                      ),
+                    )),
+                PopupMenuItem(
+                    child: GestureDetector(
+                      onTap: (){
+                        Navigator.push(context, MaterialPageRoute( builder: (context) => SortScreen(),
+                          ),
+                        );
+                      },
+                      child: Row(
+                        children: [
+                          (Icon(
+                            Icons.sort,
+                            color: Colors.teal,
+                            size: 30,
+                          )),
+                          SizedBox(
+                            width: 10,
+                          ),
+                          Text(
+                            'Sort By',
+                            style: TextStyle(
+                              color: Colors.teal,
+                              fontWeight: FontWeight.w500,
+                              fontSize: 20,
+                            ),
+                          ),
+                        ],
+                      ),
+                    )),
+              ]),
         ],
       ),
-      bottomNavigationBar: BottomNavigationBar(
-        //backgroundColor: Colors.black,
-        fixedColor: Colors.teal,
-        type: BottomNavigationBarType.fixed,
-        currentIndex: currentIndex,
-        onTap: (index) {
-          setState(() {
-            currentIndex = index;
-          });
-        },
-
-        items: [
-          BottomNavigationBarItem(
-              icon: Icon(
-                Icons.home,
-              ),
-              label: 'Home Page'),
-          BottomNavigationBarItem(
-              icon: Icon(
-                Icons.radar,
-              ),
-              label: 'Rader'),
-          BottomNavigationBarItem(
-              icon: Icon(
-                Icons.add,
-              ),
-              label: 'Add'),
-          BottomNavigationBarItem(
-              icon: Icon(
-                Icons.message,
-              ),
-              label: 'Messages'),
-          BottomNavigationBarItem(
-              icon: Icon(
-                Icons.face,
-              ),
-              label: 'Profile'),
-        ],
-      ),
+      bottomNavigationBar: CustomButtom(),
       body: Container(
         decoration: BoxDecoration(
             image: DecorationImage(

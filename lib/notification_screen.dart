@@ -1,7 +1,10 @@
 
+import 'package:auction/rader_screen.dart';
 import 'package:auction/shopping_cart_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+
+import 'custom_nav_bar.dart';
 
 class NotificationScreen extends StatefulWidget {
   const NotificationScreen({Key? key}) : super(key: key);
@@ -11,7 +14,6 @@ class NotificationScreen extends StatefulWidget {
 }
 
 class _NotificationScreenState extends State<NotificationScreen> {
-  int currentIndex = 0;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -39,45 +41,7 @@ class _NotificationScreenState extends State<NotificationScreen> {
           ),
         ],
       ),
-      bottomNavigationBar: BottomNavigationBar(
-        //backgroundColor: Colors.black,
-        fixedColor: Colors.teal,
-        type: BottomNavigationBarType.fixed,
-        currentIndex: currentIndex,
-        onTap: (index) {
-          setState(() {
-            currentIndex = index;
-          });
-        },
-
-        items: [
-          BottomNavigationBarItem(
-              icon: Icon(
-                Icons.home,
-              ),
-              label: 'Home Page'),
-          BottomNavigationBarItem(
-              icon: Icon(
-                Icons.radar,
-              ),
-              label: 'Rader'),
-          BottomNavigationBarItem(
-              icon: Icon(
-                Icons.add,
-              ),
-              label: 'Add'),
-          BottomNavigationBarItem(
-              icon: Icon(
-                Icons.message,
-              ),
-              label: 'Messages'),
-          BottomNavigationBarItem(
-              icon: Icon(
-                Icons.face,
-              ),
-              label: 'Profile'),
-        ],
-      ),
+      bottomNavigationBar: CustomButtom(),
       body: Container(
         decoration: BoxDecoration(
             image: DecorationImage(

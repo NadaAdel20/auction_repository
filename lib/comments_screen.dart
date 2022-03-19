@@ -1,8 +1,12 @@
 
+import 'package:auction/rader_screen.dart';
+import 'package:auction/search_screen.dart';
 import 'package:auction/shopping_cart_screen.dart';
+import 'package:auction/sort_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
+import 'custom_nav_bar.dart';
 import 'notification_screen.dart';
 
 class CommentsScreen extends StatefulWidget {
@@ -13,7 +17,6 @@ class CommentsScreen extends StatefulWidget {
 }
 
 class _CommentsScreenState extends State<CommentsScreen> {
-  int currentIndex = 0;
   bool isLiked = false;
   int Likes = 10;
   int LikeCount = 1;
@@ -52,51 +55,80 @@ class _CommentsScreenState extends State<CommentsScreen> {
             onPressed: () {},
             icon: (Icon(Icons.category)),
           ),
-          IconButton(
-            onPressed: () {},
-            icon: (Icon(Icons.sort)),
-          ),
+          PopupMenuButton(
+              tooltip: 'Menu',
+              child: Icon(
+                Icons.more_vert,
+                size: 28.0,
+                color: Colors.white,
+              ),
+              itemBuilder: (context) => [
+                PopupMenuItem(
+                    child: GestureDetector(
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => SearchScreen(),
+                          ),
+                        );
+                      },
+                      child: Row(
+                        children: [
+                          (Icon(
+                            Icons.search,
+                            color: Colors.teal,
+                            size: 30,
+                          )),
+                          SizedBox(
+                            width: 10,
+                          ),
+                          Text(
+                            'Search',
+                            style: TextStyle(
+                              color: Colors.teal,
+                              fontWeight: FontWeight.w500,
+                              fontSize: 20,
+                            ),
+                          ),
+                        ],
+                      ),
+                    )),
+                PopupMenuItem(
+                    child: GestureDetector(
+                      onTap: (){
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => SortScreen(),
+                          ),
+                        );
+                      },
+                      child: Row(
+                        children: [
+                          (Icon(
+                            Icons.sort,
+                            color: Colors.teal,
+                            size: 30,
+                          )),
+                          SizedBox(
+                            width: 10,
+                          ),
+                          Text(
+                            'Sort By',
+                            style: TextStyle(
+                              color: Colors.teal,
+                              fontWeight: FontWeight.w500,
+                              fontSize: 20,
+                            ),
+                          ),
+                        ],
+                      ),
+                    )),
+              ]),
         ],
       ),
-      bottomNavigationBar: BottomNavigationBar(
-        //backgroundColor: Colors.black,
-        fixedColor: Colors.teal,
-        type: BottomNavigationBarType.fixed,
-        currentIndex: currentIndex,
-        onTap: (index) {
-          setState(() {
-            currentIndex = index;
-          });
-        },
-
-        items: [
-          BottomNavigationBarItem(
-              icon: Icon(
-                Icons.home,
-              ),
-              label: 'Home Page'),
-          BottomNavigationBarItem(
-              icon: Icon(
-                Icons.radar,
-              ),
-              label: 'Rader'),
-          BottomNavigationBarItem(
-              icon: Icon(
-                Icons.add,
-              ),
-              label: 'Add'),
-          BottomNavigationBarItem(
-              icon: Icon(
-                Icons.message,
-              ),
-              label: 'Messages'),
-          BottomNavigationBarItem(
-              icon: Icon(
-                Icons.face,
-              ),
-              label: 'Profile'),
-        ],
-      ),
+      bottomNavigationBar: CustomButtom(),
       body: Container(
         decoration: BoxDecoration(
             image: DecorationImage(
@@ -152,16 +184,6 @@ class _CommentsScreenState extends State<CommentsScreen> {
                                   ),
                                 ],
                               ),
-                              /*Container(
-                                width: MediaQuery.of(context).size.width*0.3,
-                                height:150,
-                                margin: new EdgeInsets.fromLTRB(200,0,0,0),
-                               // color: Colors.black87,
-                                decoration: BoxDecoration(
-                    image: DecorationImage(
-                          image:  NetworkImage("https://i.pinimg.com/564x/70/f9/dd/70f9dd78e5d27729b98d74cdd4c78484.jpg"),),
-                  ),
-                              ),*/
                               Container(
                                 alignment: Alignment.topLeft,
                                 //margin: EdgeInsets.fromLTRB(12,5,320,400),
@@ -411,7 +433,7 @@ class _CommentsScreenState extends State<CommentsScreen> {
                 SizedBox(
                   height: 20,
                 ),
-                Container(
+                /*Container(
                   height: 55,
                   width: MediaQuery.of(context).size.width*0.8,
                   decoration: BoxDecoration(
@@ -427,15 +449,61 @@ class _CommentsScreenState extends State<CommentsScreen> {
                     //color: Colors.teal,
 
                   ),
-                ),
+                ),*/
                 SizedBox(
-                  height: 20,
+                  height: 5,
                 ),
-                TextField(
-                  decoration: InputDecoration(
-                    border: OutlineInputBorder(),
-                    hintText: 'Enter Comment',
-                  ),),
+                Row(
+                  children: [
+                    Expanded(
+                      child: Padding(
+                        padding: const EdgeInsets.all(9.0),
+                        child: Container(
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(25),
+                            color: Colors.teal.withOpacity(0.1),
+                          ),
+                          height: 50,
+                          width: 293,
+                          child: TextField(
+                            decoration: InputDecoration(
+                              hintText: 'Write Comment',
+                              //suffixIcon: Icon(Icons.search),
+                              enabledBorder: OutlineInputBorder(
+                                borderSide: const BorderSide(
+                                  color: Colors.teal,
+                                  width: 1,
+                                ),
+                                borderRadius: BorderRadius.circular(25),
+                              ),
+                              focusedBorder: OutlineInputBorder(
+                                borderSide: BorderSide(
+                                  color: Colors.teal,
+                                ),
+                                borderRadius: BorderRadius.circular(25),
+                              ),
+                            ),
+                          ),
+                        ),
+
+
+                      ),
+                    ),
+                    Container(
+                      //padding: const EdgeInsets.only(left: 18),
+                      decoration: BoxDecoration(shape: BoxShape.circle),
+                      child: InkWell(
+                        child: Icon(
+                          Icons.send,
+                          size: 40,
+                          color: Colors.teal,
+                        ),
+                        onLongPress: () {},
+                      ),
+                    )
+
+                  ],
+                ),
 
 
               ],

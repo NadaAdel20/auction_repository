@@ -1,9 +1,14 @@
 import 'package:auction/comments_screen.dart';
 import 'package:auction/notification_screen.dart';
+import 'package:auction/rader_screen.dart';
+import 'package:auction/search_screen.dart';
 import 'package:auction/shopping_cart_screen.dart';
+import 'package:auction/sort_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+
+import 'custom_nav_bar.dart';
 
 class OnlineAuctionScreen extends StatefulWidget {
   const OnlineAuctionScreen({Key? key}) : super(key: key);
@@ -19,7 +24,13 @@ class _OnlineAuctionScreenState extends State<OnlineAuctionScreen> {
   int Add = 500;
   int AddCount = 1;
   @override
-  int currentIndex = 0;
+
+  List<Widget>screens=
+  [
+    OnlineAuctionScreen(),
+    RaderScreen(),
+
+  ];
 
   Widget build(BuildContext context) {
     return Scaffold(
@@ -35,70 +46,114 @@ class _OnlineAuctionScreenState extends State<OnlineAuctionScreen> {
         actions: [
           IconButton(
             onPressed: () {
-              Navigator.push(context, MaterialPageRoute(
-                builder: (context)=> ShoppingCartScreen(),
-              ),);
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => ShoppingCartScreen(),
+                ),
+              );
             },
             icon: Icon(Icons.shopping_cart_rounded),
           ),
           IconButton(
             onPressed: () {
-              Navigator.push(context, MaterialPageRoute(
-                builder: (context)=> NotificationScreen(),
-              ),);
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => NotificationScreen(),
+                ),
+              );
             },
-            icon: (Icon(Icons.notifications,
-             )),
+            icon: (Icon(
+              Icons.notifications,
+            )),
           ),
           IconButton(
             onPressed: () {},
             icon: (Icon(Icons.category)),
           ),
-          IconButton(
-            onPressed: () {},
-            icon: (Icon(Icons.sort)),
-          ),
+          /*IconButton(
+            onPressed: () {
+              Navigator.push(context, MaterialPageRoute(
+                builder: (context)=> SearchScreen(),
+              ),);
+            },
+             icon: (Icon(Icons.menu)),
+          ),*/
+          PopupMenuButton(
+              tooltip: 'Menu',
+              child: Icon(
+                Icons.more_vert,
+                size: 28.0,
+                color: Colors.white,
+              ),
+              itemBuilder: (context) => [
+                    PopupMenuItem(
+                        child: GestureDetector(
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => SearchScreen(),
+                          ),
+                        );
+                      },
+                      child: Row(
+                        children: [
+                          (Icon(
+                            Icons.search,
+                            color: Colors.teal,
+                            size: 30,
+                          )),
+                          SizedBox(
+                            width: 10,
+                          ),
+                          Text(
+                            'Search',
+                            style: TextStyle(
+                              color: Colors.teal,
+                              fontWeight: FontWeight.w500,
+                              fontSize: 20,
+                            ),
+                          ),
+                        ],
+                      ),
+                    )),
+                    PopupMenuItem(
+                        child: GestureDetector(
+                          onTap: (){
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => SortScreen(),
+                              ),
+                            );
+                          },
+                          child: Row(
+                      children: [
+                          (Icon(
+                            Icons.sort,
+                            color: Colors.teal,
+                            size: 30,
+                          )),
+                          SizedBox(
+                            width: 10,
+                          ),
+                          Text(
+                            'Sort By',
+                            style: TextStyle(
+                              color: Colors.teal,
+                              fontWeight: FontWeight.w500,
+                              fontSize: 20,
+                            ),
+                          ),
+                      ],
+                    ),
+                        )),
+                  ]),
         ],
       ),
-      bottomNavigationBar: BottomNavigationBar(
-        //backgroundColor: Colors.black,
-        fixedColor: Colors.teal,
-        type: BottomNavigationBarType.fixed,
-        currentIndex: currentIndex,
-        onTap: (index) {
-          setState(() {
-            currentIndex = index;
-          });
-        },
-
-        items: [
-          BottomNavigationBarItem(
-              icon: Icon(
-                Icons.home,
-              ),
-              label: 'Home Page'),
-          BottomNavigationBarItem(
-              icon: Icon(
-                Icons.radar,
-              ),
-              label: 'Rader'),
-          BottomNavigationBarItem(
-              icon: Icon(
-                Icons.add,
-              ),
-              label: 'Add'),
-          BottomNavigationBarItem(
-              icon: Icon(
-                Icons.message,
-              ),
-              label: 'Messages'),
-          BottomNavigationBarItem(
-              icon: Icon(
-                Icons.face,
-              ),
-              label: 'Profile'),
-        ],
-      ),
+      bottomNavigationBar: CustomButtom(),
       body: Container(
         decoration: BoxDecoration(
             image: DecorationImage(
@@ -116,9 +171,12 @@ class _OnlineAuctionScreenState extends State<OnlineAuctionScreen> {
                   padding: const EdgeInsets.all(6.0),
                   child: GestureDetector(
                     onTap: () {
-                      Navigator.push(context, MaterialPageRoute(
-                        builder: (context)=> CommentsScreen(),
-                      ),);
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => CommentsScreen(),
+                        ),
+                      );
                     },
                     child: Container(
                       decoration: BoxDecoration(
@@ -218,9 +276,7 @@ class _OnlineAuctionScreenState extends State<OnlineAuctionScreen> {
                                   ),
                                 ),
                               ),
-
                               Row(
-
                                 children: [
                                   Text('$Likes'),
                                   Container(
@@ -303,7 +359,6 @@ class _OnlineAuctionScreenState extends State<OnlineAuctionScreen> {
                                   ),
                                 ],
                               ),
-
                             ],
                           ),
                           SizedBox(
@@ -316,54 +371,63 @@ class _OnlineAuctionScreenState extends State<OnlineAuctionScreen> {
                                   mainAxisAlignment: MainAxisAlignment.end,
                                   children: [
                                     Container(
-                                      child: Text('First Price',
+                                      child: Text(
+                                        'First Price',
                                         style: TextStyle(
                                           fontSize: 20,
                                           color: Colors.teal,
                                           fontWeight: FontWeight.w600,
-                                        ),),
+                                        ),
+                                      ),
                                     ),
                                     SizedBox(
                                       height: 7,
                                     ),
                                     Container(
-                                      width: MediaQuery.of(context).size.width*0.3,
-                                      height:140,
+                                      width: MediaQuery.of(context).size.width *
+                                          0.3,
+                                      height: 140,
                                       //margin: new EdgeInsets.fromLTRB(200,0,0,0),
                                       // color: Colors.black87,
                                       decoration: BoxDecoration(
                                         image: DecorationImage(
-                                          image:  NetworkImage("https://i.pinimg.com/564x/70/f9/dd/70f9dd78e5d27729b98d74cdd4c78484.jpg"),),
+                                          image: NetworkImage(
+                                              "https://i.pinimg.com/564x/70/f9/dd/70f9dd78e5d27729b98d74cdd4c78484.jpg"),
+                                        ),
                                       ),
                                     ),
                                     SizedBox(
                                       height: 5,
                                     ),
                                     Container(
-                                      child: Text('Category',
+                                      child: Text(
+                                        'Category',
                                         style: TextStyle(
                                           fontSize: 20,
                                           color: Colors.teal,
                                           fontWeight: FontWeight.w600,
-                                        ),),
+                                        ),
+                                      ),
                                     ),
                                     Container(
-                                      width: MediaQuery.of(context).size.width*0.2,
+                                      width: MediaQuery.of(context).size.width *
+                                          0.2,
                                       decoration: BoxDecoration(
                                         borderRadius: BorderRadius.circular(15),
                                         // color: Colors.teal[400],
                                       ),
-                                      child: TextButton(onPressed: () {},
-                                        child: Text('Rate',
+                                      child: TextButton(
+                                        onPressed: () {},
+                                        child: Text(
+                                          'Rate',
                                           style: TextStyle(
-                                              color: Colors.teal,
+                                            color: Colors.teal,
                                             fontSize: 20,
-                                          ),),
+                                          ),
+                                        ),
                                         //color: Colors.teal,
-
                                       ),
                                     ),
-
                                   ],
                                 ),
                               ],
@@ -371,19 +435,14 @@ class _OnlineAuctionScreenState extends State<OnlineAuctionScreen> {
                           ),
                         ],
                       ),
-
                     ),
                   ),
                 ),
-
-
               ],
             ),
           ),
         ),
-
       ),
-
     );
   }
 }
