@@ -1,4 +1,3 @@
-
 import 'package:auction/online_auction.dart';
 import 'package:auction/rader_screen.dart';
 import 'package:flutter/cupertino.dart';
@@ -12,16 +11,48 @@ class CustomButtom extends StatefulWidget {
 }
 
 class _CustomButtomState extends State<CustomButtom> {
- /* List<Widget> screens=
+  /* List<Widget> screens=
       [
         RaderScreen(),
       ];*/
   @override
-  int currentIndex = 0;
+  int index = 0;
+  final screens =
+  [
+    RaderScreen(),
+    OnlineAuctionScreen(),
+  ];
+
   Widget build(BuildContext context) {
-    return
-     // body:screens[currentIndex],
-      BottomNavigationBar(
+    return Scaffold(
+      //body: screens[index],
+      bottomNavigationBar: NavigationBarTheme(
+        data: NavigationBarThemeData(
+          indicatorColor: Colors.teal.shade100,
+          labelTextStyle: MaterialStateProperty.all(
+            TextStyle(fontSize: 15,fontWeight: FontWeight.w500),
+          ),
+        ),
+        child: NavigationBar(
+          height: 60,
+            backgroundColor: Color(0xFFf1f5fb),
+            labelBehavior: NavigationDestinationLabelBehavior.onlyShowSelected,
+            animationDuration: Duration(seconds: 3),
+            selectedIndex: index,
+            onDestinationSelected: (index)=>
+            setState(() =>this.index = index),
+            destinations: [
+          NavigationDestination(icon: Icon(Icons.home), label: 'Home'),
+          NavigationDestination(icon: Icon(Icons.radar), label: 'Radar'),
+          NavigationDestination(icon: Icon(Icons.add), label: 'Add'),
+          NavigationDestination(icon: Icon(Icons.message), label: 'Message'),
+          NavigationDestination(
+              icon: Icon(Icons.person_rounded), label: 'Profile'),
+        ]),
+      ),
+    );
+    // body:screens[currentIndex],
+    /*  BottomNavigationBar(
         //backgroundColor: Colors.black,
         fixedColor: Colors.teal,
      type: BottomNavigationBarType.fixed,
@@ -66,8 +97,6 @@ class _CustomButtomState extends State<CustomButtom> {
     ),
     label: 'Profile'),
     ],
-    );
-
-
+    );*/
   }
 }
