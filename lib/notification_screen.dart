@@ -30,11 +30,7 @@ class _NotificationScreenState extends State<NotificationScreen> {
         ),
         actions: [
           IconButton(
-            onPressed: () {
-              Navigator.push(context, MaterialPageRoute(
-                builder: (context)=> NotificationScreen(),
-              ),);
-            },
+            onPressed: () {},
             icon: (Icon(Icons.notifications,
               color: Colors.black87,)
             ),

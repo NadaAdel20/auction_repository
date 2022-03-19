@@ -30,11 +30,7 @@ class _ShoppingCartScreenState extends State<ShoppingCartScreen> {
         ),
         actions: [
           IconButton(
-            onPressed: () {
-              Navigator.push(context, MaterialPageRoute(
-                builder: (context)=> ShoppingCartScreen(),
-              ),);
-            },
+            onPressed: () {},
             icon: (Icon(Icons.shopping_cart_rounded,
               color: Colors.black87,)
             ),
