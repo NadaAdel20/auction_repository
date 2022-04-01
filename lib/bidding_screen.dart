@@ -68,16 +68,7 @@ class _BiddingScreenState extends State<BiddingScreen> {
                                 ),
                               ],
                             ),
-                            /*Container(
-                                width: MediaQuery.of(context).size.width*0.3,
-                                height:150,
-                                margin: new EdgeInsets.fromLTRB(200,0,0,0),
-                               // color: Colors.black87,
-                                decoration: BoxDecoration(
-                    image: DecorationImage(
-                          image:  NetworkImage("https://i.pinimg.com/564x/70/f9/dd/70f9dd78e5d27729b98d74cdd4c78484.jpg"),),
-                  ),
-                              ),*/
+
                             Container(
                               alignment: Alignment.topLeft,
                               //margin: EdgeInsets.fromLTRB(12,5,320,400),
@@ -139,12 +130,7 @@ class _BiddingScreenState extends State<BiddingScreen> {
                                   height: 30,
                                   width: 40,
                                   child: FloatingActionButton(
-                                    onPressed: () {
-                                      setState(() {
-                                        Likes++;
-                                        //print(Likes);
-                                      });
-                                    },
+                                    onPressed: () {},
                                     heroTag: 'Likes+',
                                     backgroundColor: Colors.teal,
                                     mini: true,
@@ -175,34 +161,12 @@ class _BiddingScreenState extends State<BiddingScreen> {
                                 SizedBox(
                                   width: 10,
                                 ),
-                                /*Container(
-                                    child: TextButton.icon(
-                                        onPressed: () {},
-                                        icon: (Icon(
-                                          Icons.add_comment_rounded,
-                                          size: 25,
-                                          color: Colors.black,
-                                        )),
-                                        label: Text(
-                                          'Comment',
-                                          style: TextStyle(
-                                            color: Colors.teal,
-                                            fontWeight: FontWeight.w600,
-                                            fontSize: 15,
-                                          ),
-                                        )),
-                                  ),*/
                                 Text('$Add'),
                                 Container(
                                   height: 30,
                                   width: 40,
                                   child: FloatingActionButton(
-                                    onPressed: () {
-                                      setState(() {
-                                        Add++;
-                                        //print(Likes);
-                                      });
-                                    },
+                                    onPressed: () {},
                                     heroTag: 'Add',
                                     backgroundColor: Colors.teal,
                                     mini: true,

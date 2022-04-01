@@ -2,8 +2,10 @@
 import 'package:auction/home_screen.dart';
 import 'package:auction/login_screen.dart';
 import 'package:auction/online_auction.dart';
+import 'package:auction/posts_screen.dart';
 import 'package:auction/rader_screen.dart';
 import 'package:auction/signup_screen.dart';
+import 'package:auction/username_screen.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
@@ -46,7 +48,7 @@ class MyApp extends StatelessWidget {
               child: CircularProgressIndicator(),
             );
           }
-          return const RaderScreen();
+          return const UserNameScreen();
           },
       ),
       //  const SignupScreen(),
