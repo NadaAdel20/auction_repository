@@ -3,7 +3,9 @@ import 'package:auction/home_screen.dart';
 import 'package:auction/login_screen.dart';
 import 'package:auction/online_auction.dart';
 import 'package:auction/posts_screen.dart';
+import 'package:auction/profile_screen.dart';
 import 'package:auction/rader_screen.dart';
+import 'package:auction/rating_screen.dart';
 import 'package:auction/signup_screen.dart';
 import 'package:auction/username_screen.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -48,7 +50,7 @@ class MyApp extends StatelessWidget {
               child: CircularProgressIndicator(),
             );
           }
-          return const UserNameScreen();
+          return const ProfileScreen();
           },
       ),
       //  const SignupScreen(),

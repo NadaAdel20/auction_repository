@@ -1,6 +1,7 @@
 
 import 'package:auction/custom_nav_bar.dart';
 import 'package:auction/posts_screen.dart';
+import 'package:auction/rating_screen.dart';
 import 'package:auction/reviews_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/cupertino.dart';
@@ -27,10 +28,6 @@ class _UserNameScreenState extends State<UserNameScreen> {
           ),),
         ),
         backgroundColor: Colors.teal,
-        actions: [
-          IconButton(onPressed: (){},
-              icon: Icon(Icons.more_vert_rounded))
-        ],
       ),
       bottomNavigationBar: CustomButtom(),
       body: Container(
@@ -150,7 +147,11 @@ class _UserNameScreenState extends State<UserNameScreen> {
                         child: Icon(Icons.star,
                           color: Colors.greenAccent.shade200,),
                       ),
-                      TextButton(onPressed: (){},
+                      TextButton(onPressed: (){
+                        Navigator.push(context, MaterialPageRoute( builder: (context) => RatingScreen(),
+                        ),
+                        );
+                      },
                           child:Text('Rate',
                             style: TextStyle(
                                 fontSize: 20,
