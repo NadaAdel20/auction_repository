@@ -1,6 +1,6 @@
 import 'package:auction/rating_profile_screen.dart';
 import 'package:auction/reviews_profile_screen.dart';
-import 'package:auction/setting_screen.dart';
+import 'package:auction/editprofile_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
