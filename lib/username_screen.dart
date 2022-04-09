@@ -1,4 +1,5 @@
 
+import 'package:auction/chat_screen.dart';
 import 'package:auction/custom_nav_bar.dart';
 import 'package:auction/posts_screen.dart';
 import 'package:auction/rating_screen.dart';
@@ -158,6 +159,39 @@ class _UserNameScreenState extends State<UserNameScreen> {
                                 fontWeight: FontWeight.w500,
                                 color: Colors.white
                             ),)),
+
+                    ],
+                  ),
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Container(
+                  width: MediaQuery.of(context).size.width*0.35,
+                  decoration:
+                  BoxDecoration(
+                      borderRadius: BorderRadius.circular(30),
+                      gradient: LinearGradient(colors: [Colors.teal.shade300,Colors.greenAccent.shade200])
+                  ),
+                  child: Row(
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Icon(Icons.message,
+                          color: Colors.greenAccent.shade200,),
+                      ),
+                      TextButton(onPressed: (){
+                        Navigator.push(context, MaterialPageRoute( builder: (context) => chat(),
+                        ),
+                        );
+                      },
+                          child:Text('Message',
+                            style: TextStyle(
+                                fontSize: 20,
+                                fontWeight: FontWeight.w500,
+                                color: Colors.white
+                            ),)),
+
                     ],
                   ),
                 ),

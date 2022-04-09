@@ -1,4 +1,4 @@
-import 'package:auction/home_screen.dart';
+import 'package:auction/home_pages_screen.dart';
 import 'package:auction/resources/auth_method.dart';
 import 'package:auction/signup_screen.dart';
 import 'package:auction/start_screen.dart';
@@ -6,8 +6,6 @@ import 'package:auction/text_field_input.dart';
 import 'package:auction/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-
-import 'home_screen.dart';
 import 'resources/auth_method.dart';
 import 'signup_screen.dart';
 import 'text_field_input.dart';
@@ -40,7 +38,7 @@ class _LoginScreenState extends State<LoginScreen> {
         email: _emailController.text, password: _passwordController.text);
     if (res == 'success') {
       Navigator.of(context).pushReplacement(
-          MaterialPageRoute(builder: (context) => const HomeScreeen()));
+          MaterialPageRoute(builder: (context) => const HomePagesScreen()));
 
       setState(() {
         _isLoading = false;
@@ -117,7 +115,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     padding: const EdgeInsets.symmetric(vertical: 12),
                     decoration: const ShapeDecoration(
                       shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.all(Radius.circular(10)),
+                        borderRadius: BorderRadius.all(Radius.circular(25)),
                       ),
                       color: primaryColor,
                     ),

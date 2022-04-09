@@ -1,3 +1,4 @@
+import 'package:auction/message_screen.dart';
 import 'package:auction/online_auction.dart';
 import 'package:auction/rader_screen.dart';
 import 'package:flutter/cupertino.dart';
@@ -50,7 +51,17 @@ class _CustomButtomState extends State<CustomButtom> {
             },
               child: NavigationDestination(icon: Icon(Icons.radar), label: 'Radar')),
           NavigationDestination(icon: Icon(Icons.add), label: 'Add'),
-          NavigationDestination(icon: Icon(Icons.message), label: 'Message'),
+          GestureDetector(
+            onTap: () {
+    Navigator.push(
+    context,
+    MaterialPageRoute(
+    builder: (context) =>MessageScreen(),
+    ),
+    );
+    },
+              child:
+          NavigationDestination(icon: Icon(Icons.message), label: 'Message')),
           NavigationDestination(
               icon: Icon(Icons.person_rounded), label: 'Profile'),
         ]),

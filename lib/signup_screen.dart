@@ -1,13 +1,11 @@
 import 'dart:typed_data';
-import 'package:auction/home_screen.dart';
+import 'package:auction/home_pages_screen.dart';
 import 'package:auction/login_screen.dart';
 import 'package:auction/resources/auth_method.dart';
 import 'package:auction/start_screen.dart';
 import 'package:auction/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
-
-import 'home_screen.dart';
 import 'resources/auth_method.dart';
 import 'text_field_input.dart';
 
@@ -61,7 +59,7 @@ class _SignupScreenState extends State<SignupScreen> {
         _isLoading = false;
       });
       Navigator.of(context).pushReplacement(
-        MaterialPageRoute(builder: (context) => const HomeScreeen()),
+        MaterialPageRoute(builder: (context) => const HomePagesScreen()),
       );
     } else {
       setState(() {

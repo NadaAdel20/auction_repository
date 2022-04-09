@@ -1,18 +1,17 @@
 
 import 'package:auction/signup_screen.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import 'login_screen.dart';
 
-class HomePage extends StatefulWidget {
-  const HomePage({Key? key}) : super(key: key);
+class HomePagesScreen extends StatefulWidget {
+  const HomePagesScreen({Key? key}) : super(key: key);
 
   @override
-  _HomePageState createState() => _HomePageState();
+  _HomePagesScreenState createState() => _HomePagesScreenState();
 }
 
-class _HomePageState extends State<HomePage> {
+class _HomePagesScreenState extends State<HomePagesScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(

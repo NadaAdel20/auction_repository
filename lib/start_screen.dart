@@ -1,4 +1,5 @@
 
+import 'package:auction/trade_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -142,7 +143,11 @@ class _StartScreenState extends State<StartScreen> {
                       borderRadius: BorderRadius.circular(30),
                       color: Colors.teal,
                     ),
-                    child: TextButton(onPressed: () {},
+                    child: TextButton(onPressed: () {
+                      Navigator.push(context, MaterialPageRoute(
+                        builder: (context)=> TradeScreen(),
+                      ),);
+                    },
                       child: Text('Trade',
                         style: TextStyle(
                           color: Colors.white,

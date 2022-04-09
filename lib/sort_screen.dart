@@ -2,7 +2,7 @@ import 'package:auction/rader_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-import 'comments_screen.dart';
+import 'online_comments_screen.dart';
 import 'custom_nav_bar.dart';
 
 class SortScreen extends StatefulWidget {

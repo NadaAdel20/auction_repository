@@ -74,69 +74,71 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   ],
                 ),
               ),
-              Row(
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Container(
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(20),
-                        gradient: LinearGradient(colors:[Colors.teal.shade200,Colors.greenAccent.shade100])
-                      ),
-                      width: MediaQuery.of(context).size.width* 0.4,
-                      height: 50,
-                      child: Column(
-                        children: [
-                          Text('My Balance:',style:
+              Padding(
+                padding: const EdgeInsets.only(bottom: 20),
+                child: Row(
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Container(
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(20),
+                          gradient: LinearGradient(colors:[Colors.teal.shade200,Colors.greenAccent.shade100])
+                        ),
+                        width: MediaQuery.of(context).size.width* 0.4,
+                        height: 50,
+                        child: Column(
+                          children: [
+                            Text('My Balance:',style:
+                              TextStyle(
+                                fontWeight: FontWeight.w500,
+                                fontSize: 20,
+                                color: Colors.teal[600],
+                              ),),
+                            Text('0:00',style:
                             TextStyle(
                               fontWeight: FontWeight.w500,
                               fontSize: 20,
                               color: Colors.teal[600],
                             ),),
-                          Text('0:00',style:
-                          TextStyle(
-                            fontWeight: FontWeight.w500,
-                            fontSize: 20,
-                            color: Colors.teal[600],
-                          ),),
-                        ],
+                          ],
+                        ),
                       ),
                     ),
-                  ),
-                  SizedBox(width: 30,),
-                  Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Container(
-                      decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(23),
-                          gradient: LinearGradient(colors:[Colors.greenAccent.shade100,Colors.teal.shade200])
-                      ),
-                      width: MediaQuery.of(context).size.width* 0.4,
-                      height: 50,
-                      alignment: Alignment.center,
-                      child: Column(
-                        children: [
-                          Text('Revenue:',style:
-                          TextStyle(
-                            fontWeight: FontWeight.w500,
-                            fontSize: 20,
-                            color: Colors.teal[600],
-                          ),),
-                          Text('0:00',style:
-                          TextStyle(
-                            fontWeight: FontWeight.w500,
-                            fontSize: 20,
-                            color: Colors.teal[600],
-                          ),),
-                        ],
+                    Spacer(),
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Container(
+                        decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(23),
+                            gradient: LinearGradient(colors:[Colors.greenAccent.shade100,Colors.teal.shade200])
+                        ),
+                        width: MediaQuery.of(context).size.width* 0.4,
+                        height: 50,
+                        alignment: Alignment.center,
+                        child: Column(
+                          children: [
+                            Text('Revenue:',style:
+                            TextStyle(
+                              fontWeight: FontWeight.w500,
+                              fontSize: 20,
+                              color: Colors.teal[600],
+                            ),),
+                            Text('0:00',style:
+                            TextStyle(
+                              fontWeight: FontWeight.w500,
+                              fontSize: 20,
+                              color: Colors.teal[600],
+                            ),),
+                          ],
+                        ),
                       ),
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
-              SizedBox(height: 90,),
               Padding(
-                padding: const EdgeInsets.all(8.0),
+                padding: const EdgeInsets.only(top: 40,bottom:10),
                 child: Container(
                   width: MediaQuery.of(context).size.width*0.35,
                   decoration:
@@ -167,9 +169,8 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   ),
                 ),
               ),
-              SizedBox(height: 10,),
               Padding(
-                padding: const EdgeInsets.all(8.0),
+                padding: const EdgeInsets.only(top: 10),
                 child: Container(
                   width: MediaQuery.of(context).size.width*0.35,
                   decoration:

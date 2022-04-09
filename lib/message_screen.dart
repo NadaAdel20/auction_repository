@@ -1,19 +1,17 @@
 
-import 'package:auction/rader_screen.dart';
-import 'package:auction/shopping_cart_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import 'custom_nav_bar.dart';
 
-class NotificationScreen extends StatefulWidget {
-  const NotificationScreen({Key? key}) : super(key: key);
+class MessageScreen extends StatefulWidget {
+  const MessageScreen({Key? key}) : super(key: key);
 
   @override
-  _NotificationScreenState createState() => _NotificationScreenState();
+  _MessageScreenState createState() => _MessageScreenState();
 }
 
-class _NotificationScreenState extends State<NotificationScreen> {
+class _MessageScreenState extends State<MessageScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -21,21 +19,13 @@ class _NotificationScreenState extends State<NotificationScreen> {
         backgroundColor: Colors.teal,
         title:Container(
           alignment: Alignment.center,
-          child: Text('Notifications',
-          style: TextStyle(
-            fontSize: 25,
-            fontWeight: FontWeight.w600,
+          child: Text('Message',
+            style: TextStyle(
+              fontSize: 25,
+              fontWeight: FontWeight.w600,
 
-          ),),
+            ),),
         ),
-        actions: [
-          IconButton(
-            onPressed: () {},
-            icon: (Icon(Icons.notifications,
-              color: Colors.black87,)
-            ),
-          ),
-        ],
       ),
       bottomNavigationBar: CustomButtom(),
       body: Container(
@@ -51,7 +41,7 @@ class _NotificationScreenState extends State<NotificationScreen> {
             child: Column(
               children: [
                 Container(
-                  margin: EdgeInsets.only(bottom:460),
+                 margin: EdgeInsets.only(bottom:460),
                   child: Padding(
                     padding: const EdgeInsets.all(8.0),
                     child: Expanded(
@@ -92,12 +82,12 @@ class _NotificationScreenState extends State<NotificationScreen> {
                                         child: Padding(
                                           padding: const EdgeInsets.all(9.0),
                                           child: Container(
-                                            child: Text('Notification From Nada',
-                                            style: TextStyle(
-                                              fontSize: 15,
-                                              fontWeight: FontWeight.bold,
-                                              color: Colors.black,
-                                            ),),
+                                            child: Text('Message From Nada',
+                                              style: TextStyle(
+                                                fontSize: 15,
+                                                fontWeight: FontWeight.bold,
+                                                color: Colors.black,
+                                              ),),
                                           ),
                                         ),
                                       ),

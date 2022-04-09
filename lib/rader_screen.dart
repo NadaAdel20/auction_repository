@@ -1,7 +1,7 @@
 
 
 import 'package:auction/bidding_screen.dart';
-import 'package:auction/comments_screen.dart';
+import 'package:auction/online_comments_screen.dart';
 import 'package:auction/custom_nav_bar.dart';
 import 'package:auction/favorite_screen.dart';
 import 'package:auction/lost_screen.dart';
