@@ -73,51 +73,52 @@ class _LoginScreenState extends State<LoginScreen> {
                   child: Container(),
                   flex: 2,
                 ),
-                Container(
-                    height: 150,
-                    child: const Image(
-                      image: AssetImage('assets/logo1.png'),
-                    )),
+                Padding(
+                  padding: const EdgeInsets.all(60),
+                  child: Container(
+                     // height: 150,
+                      child: const Image(
+                        image: AssetImage('assets/logo1.png'),
+                      )),
+                ),
                 // SvgPicture.asset(
                 // ),
-                const SizedBox(
-                  height: 64,
+                Padding(
+                  padding: const EdgeInsets.all(13),
+                  child: TextFieldInput(
+                    hintText: 'Enter your email',
+                    textInputType: TextInputType.emailAddress,
+                    textEditingController: _emailController,
+                  ),
                 ),
-                TextFieldInput(
-                  hintText: 'Enter your email',
-                  textInputType: TextInputType.emailAddress,
-                  textEditingController: _emailController,
-                ),
-                const SizedBox(
-                  height: 24,
-                ),
-                TextFieldInput(
-                  hintText: 'Enter your password',
-                  textInputType: TextInputType.text,
-                  textEditingController: _passwordController,
-                  isPass: true,
-                ),
-                const SizedBox(
-                  height: 24,
+                Padding(
+                  padding: const EdgeInsets.all(13),
+                  child: TextFieldInput(
+                    hintText: 'Enter your password',
+                    textInputType: TextInputType.text,
+                    textEditingController: _passwordController,
+                    isPass: true,
+                  ),
                 ),
                 InkWell(
-                  child: Container(
-                    child: !_isLoading
-                        ? const Text(
-                            'Log in',
-                          )
-                        : const CircularProgressIndicator(
-                            color: (Colors.white),
-                          ),
+                  child: Padding(
+                    padding: const EdgeInsets.all(13),
+                    child: Container(
+                      child: !_isLoading
+                          ? const Text(
+                              'Log in',
+                            )
+                          : const CircularProgressIndicator(
+                              color: (Colors.white),
+                            ),
+                      width: double.infinity,
+                      alignment: Alignment.center,
+                      padding: EdgeInsets.all(15),
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(30),
+                        gradient: LinearGradient(colors: [Colors.teal.shade200,Colors.greenAccent.shade100]),
+                      )
 
-                    width: double.infinity,
-                    alignment: Alignment.center,
-                    padding: const EdgeInsets.symmetric(vertical: 12),
-                    decoration: const ShapeDecoration(
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.all(Radius.circular(25)),
-                      ),
-                      color: primaryColor,
                     ),
                   ),
                   onTap: () => Navigator.of(context).push(

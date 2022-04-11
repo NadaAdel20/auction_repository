@@ -1,3 +1,4 @@
+import 'package:auction/categories_screen.dart';
 import 'package:flutter/material.dart';
 
 class TextFieldInput extends StatelessWidget {
@@ -16,14 +17,16 @@ class TextFieldInput extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final inputBorder = OutlineInputBorder(
+      borderRadius:   BorderRadius.circular(25),
       borderSide: Divider.createBorderSide(context),
     );
 
     return TextField(
       controller: textEditingController,
       decoration: InputDecoration(
+        fillColor: Colors.teal.withOpacity(0.2),
         hintText: hintText,
-        border: OutlineInputBorder(borderRadius: BorderRadius.circular(15)),
+        border: OutlineInputBorder(borderRadius: BorderRadius.circular(30)),
         focusedBorder: inputBorder,
         enabledBorder: inputBorder,
         filled: true,

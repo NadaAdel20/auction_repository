@@ -153,229 +153,235 @@ class _TradeScreenState extends State<TradeScreen> {
             )),
         child: Center(
           child: SingleChildScrollView(
-            child: Column(
-              //mainAxisAlignment:MainAxisAlignment.start,
-              //crossAxisAlignment:CrossAxisAlignment.start,
-              children: [
-                Padding(
-                  padding: const EdgeInsets.all(6.0),
-                  child: GestureDetector(
-                    onTap: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => TradeCommentScreen(),
-                        ),
-                      );
-                    },
-                    child: Container(
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(25),
-                        color: Colors.teal.withOpacity(0.2),
-                      ),
-                      child: Row(
-                        children: [
-                          Column(
+            child: Container(
+              margin: EdgeInsets.only(bottom: 460),
+              child: Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Column(
+                  //mainAxisAlignment:MainAxisAlignment.start,
+                  //crossAxisAlignment:CrossAxisAlignment.start,
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.all(6.0),
+                      child: GestureDetector(
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => TradeCommentScreen(),
+                            ),
+                          );
+                        },
+                        child: Container(
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(25),
+                            color: Colors.teal.withOpacity(0.2),
+                          ),
+                          child: Row(
                             children: [
-                              GestureDetector(
-                                onTap: (){
-                                  Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                      builder: (context) => UserNameScreen(),
-                                    ),
-                                  );
-                                },
-                                child: Row(
-                                  children: [
-                                    Stack(
+                              Column(
+                                children: [
+                                  GestureDetector(
+                                    onTap: (){
+                                      Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                          builder: (context) => UserNameScreen(),
+                                        ),
+                                      );
+                                    },
+                                    child: Row(
                                       children: [
-                                        Padding(
-                                          padding: const EdgeInsets.all(8.0),
-                                          child: CircleAvatar(
-                                            radius: 30,
-                                            backgroundColor: Colors.teal,
-                                            backgroundImage: NetworkImage(
-                                                'https://as2.ftcdn.net/v2/jpg/00/65/77/27/1000_F_65772719_A1UV5kLi5nCEWI0BNLLiFaBPEkUbv5Fv.jpg'),
+                                        Stack(
+                                          children: [
+                                            Padding(
+                                              padding: const EdgeInsets.all(8.0),
+                                              child: CircleAvatar(
+                                                radius: 30,
+                                                backgroundColor: Colors.teal,
+                                                backgroundImage: NetworkImage(
+                                                    'https://as2.ftcdn.net/v2/jpg/00/65/77/27/1000_F_65772719_A1UV5kLi5nCEWI0BNLLiFaBPEkUbv5Fv.jpg'),
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                        Text(
+                                          'UserName',
+                                          style: TextStyle(
+                                            color: Colors.teal[600],
+                                            fontSize: 17,
+                                            fontWeight: FontWeight.w600,
                                           ),
                                         ),
                                       ],
                                     ),
-                                    Text(
-                                      'UserName',
+                                  ),
+
+                                  Container(
+                                    alignment: Alignment.topLeft,
+                                    //margin: EdgeInsets.fromLTRB(12,5,320,400),
+                                    child: Text(
+                                      'Title',
                                       style: TextStyle(
+                                        fontSize: 15,
                                         color: Colors.teal[600],
-                                        fontSize: 17,
                                         fontWeight: FontWeight.w600,
                                       ),
                                     ),
-                                  ],
-                                ),
-                              ),
-
-                              Container(
-                                alignment: Alignment.topLeft,
-                                //margin: EdgeInsets.fromLTRB(12,5,320,400),
-                                child: Text(
-                                  'Title',
-                                  style: TextStyle(
-                                    fontSize: 15,
-                                    color: Colors.teal[600],
-                                    fontWeight: FontWeight.w600,
                                   ),
-                                ),
-                              ),
-                              Container(
-                                alignment: Alignment.topLeft,
-                                //margin: EdgeInsets.fromLTRB(12,0,320,400),
-                                child: Text(
-                                  'Data Data Data',
-                                  style: TextStyle(
-                                    fontSize: 15,
-                                    color: Colors.teal[600],
-                                    fontWeight: FontWeight.w600,
-                                  ),
-                                ),
-                              ),
-                              SizedBox(
-                                height: 15,
-                              ),
-                              Row(
-                                children: [
-                                  Text('$Likes'),
                                   Container(
-                                    height: 30,
-                                    width: 40,
-                                    child: FloatingActionButton(
-                                      onPressed: () {
-                                        setState(() {
-                                          Likes++;
-                                          //print(Likes);
-                                        });
-                                      },
-                                      heroTag: 'Likes+',
-                                      backgroundColor: Colors.teal,
-                                      mini: true,
-                                      child: Icon(
-                                        Icons.favorite,
-                                        color: Colors.black,
-                                        size: 18,
+                                    alignment: Alignment.topLeft,
+                                    //margin: EdgeInsets.fromLTRB(12,0,320,400),
+                                    child: Text(
+                                      'Data Data Data',
+                                      style: TextStyle(
+                                        fontSize: 15,
+                                        color: Colors.teal[600],
+                                        fontWeight: FontWeight.w600,
                                       ),
                                     ),
                                   ),
                                   SizedBox(
-                                    width: 10,
+                                    height: 15,
                                   ),
-                                  Container(
-                                    height: 30,
-                                    width: 40,
-                                    child: FloatingActionButton(
-                                      onPressed: () {},
-                                      backgroundColor: Colors.teal,
-                                      mini: true,
-                                      child: Icon(
-                                        Icons.comment,
-                                        color: Colors.black,
-                                        size: 18,
-                                      ),
-                                    ),
-                                  ),
-                                  SizedBox(
-                                    width: 10,
-                                  ),
-                                  //Text('Message'),
-                                  Container(
-                                    height: 30,
-                                    width: 40,
-                                    child: FloatingActionButton(
-                                      onPressed: () {
-                                        Navigator.push(
-                                          context,
-                                          MaterialPageRoute(
-                                            builder: (context) => chat(),
+                                  Row(
+                                    children: [
+                                      Text('$Likes'),
+                                      Container(
+                                        height: 30,
+                                        width: 40,
+                                        child: FloatingActionButton(
+                                          onPressed: () {
+                                            setState(() {
+                                              Likes++;
+                                              //print(Likes);
+                                            });
+                                          },
+                                          heroTag: 'Likes+',
+                                          backgroundColor: Colors.teal,
+                                          mini: true,
+                                          child: Icon(
+                                            Icons.favorite,
+                                            color: Colors.black,
+                                            size: 18,
                                           ),
-                                        );
-                                      },
-                                      heroTag: 'message',
-                                      backgroundColor: Colors.teal,
-                                      mini: true,
-                                      child: Icon(
-                                        Icons.message,
-                                        color: Colors.black,
-                                        size: 18,
+                                        ),
                                       ),
-                                    ),
+                                      SizedBox(
+                                        width: 10,
+                                      ),
+                                      Container(
+                                        height: 30,
+                                        width: 40,
+                                        child: FloatingActionButton(
+                                          onPressed: () {},
+                                          backgroundColor: Colors.teal,
+                                          mini: true,
+                                          child: Icon(
+                                            Icons.comment,
+                                            color: Colors.black,
+                                            size: 18,
+                                          ),
+                                        ),
+                                      ),
+                                      SizedBox(
+                                        width: 10,
+                                      ),
+                                      //Text('Message'),
+                                      Container(
+                                        height: 30,
+                                        width: 40,
+                                        child: FloatingActionButton(
+                                          onPressed: () {
+                                            Navigator.push(
+                                              context,
+                                              MaterialPageRoute(
+                                                builder: (context) => chat(),
+                                              ),
+                                            );
+                                          },
+                                          heroTag: 'message',
+                                          backgroundColor: Colors.teal,
+                                          mini: true,
+                                          child: Icon(
+                                            Icons.message,
+                                            color: Colors.black,
+                                            size: 18,
+                                          ),
+                                        ),
+                                      ),
+                                    ],
                                   ),
                                 ],
                               ),
-                            ],
-                          ),
-                          Spacer(),
-                          Expanded(
-                            child: Stack(
-                              children: [
-                                Column(
-                                  mainAxisAlignment: MainAxisAlignment.end,
+                              Spacer(),
+                              Expanded(
+                                child: Stack(
                                   children: [
-                                    Padding(
-                                      padding: const EdgeInsets.all(8.0),
-                                      child: Container(
-                                        width: MediaQuery.of(context).size.width *
-                                            0.3,
-                                        height: 140,
-                                        //margin: new EdgeInsets.fromLTRB(200,0,0,0),
-                                        // color: Colors.black87,
-                                        decoration: BoxDecoration(
-                                          image: DecorationImage(
-                                            image: NetworkImage(
-                                                "https://i.pinimg.com/564x/70/f9/dd/70f9dd78e5d27729b98d74cdd4c78484.jpg"),
+                                    Column(
+                                      mainAxisAlignment: MainAxisAlignment.end,
+                                      children: [
+                                        Padding(
+                                          padding: const EdgeInsets.all(8.0),
+                                          child: Container(
+                                            width: MediaQuery.of(context).size.width *
+                                                0.3,
+                                            height: 140,
+                                            //margin: new EdgeInsets.fromLTRB(200,0,0,0),
+                                            // color: Colors.black87,
+                                            decoration: BoxDecoration(
+                                              image: DecorationImage(
+                                                image: NetworkImage(
+                                                    "https://i.pinimg.com/564x/70/f9/dd/70f9dd78e5d27729b98d74cdd4c78484.jpg"),
+                                              ),
+                                            ),
                                           ),
                                         ),
-                                      ),
-                                    ),
-                                    SizedBox(
-                                      height: 5,
-                                    ),
-                                    Container(
-                                      child: Text(
-                                        'Category',
-                                        style: TextStyle(
-                                          fontSize: 20,
-                                          color: Colors.teal,
-                                          fontWeight: FontWeight.w600,
+                                        SizedBox(
+                                          height: 5,
                                         ),
-                                      ),
-                                    ),
-                                    Container(
-                                      width: MediaQuery.of(context).size.width *
-                                          0.2,
-                                      decoration: BoxDecoration(
-                                        borderRadius: BorderRadius.circular(15),
-                                        // color: Colors.teal[400],
-                                      ),
-                                      child: TextButton(
-                                        onPressed: () {},
-                                        child: Text(
-                                          'Rate',
-                                          style: TextStyle(
-                                            color: Colors.teal,
-                                            fontSize: 20,
+                                        Container(
+                                          child: Text(
+                                            'Category',
+                                            style: TextStyle(
+                                              fontSize: 20,
+                                              color: Colors.teal,
+                                              fontWeight: FontWeight.w600,
+                                            ),
                                           ),
                                         ),
-                                        //color: Colors.teal,
-                                      ),
+                                        Container(
+                                          width: MediaQuery.of(context).size.width *
+                                              0.2,
+                                          decoration: BoxDecoration(
+                                            borderRadius: BorderRadius.circular(15),
+                                            // color: Colors.teal[400],
+                                          ),
+                                          child: TextButton(
+                                            onPressed: () {},
+                                            child: Text(
+                                              'Rate',
+                                              style: TextStyle(
+                                                color: Colors.teal,
+                                                fontSize: 20,
+                                              ),
+                                            ),
+                                            //color: Colors.teal,
+                                          ),
+                                        ),
+                                      ],
                                     ),
                                   ],
                                 ),
-                              ],
-                            ),
+                              ),
+                            ],
                           ),
-                        ],
+                        ),
                       ),
                     ),
-                  ),
+                  ],
                 ),
-              ],
+              ),
             ),
           ),
         ),

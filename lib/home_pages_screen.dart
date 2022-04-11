@@ -24,63 +24,58 @@ class _HomePagesScreenState extends State<HomePagesScreen> {
         ),
         child: Column(
           children: [
-            Container(
-                child:  Image(
-                  image: AssetImage('assets/logo1.png',),
+            Padding(
+              padding: const EdgeInsets.all(50),
+              child: Container(
+                  child:  Image(
+                    image: AssetImage('assets/logo1.png',),
 
-                )),
-            SizedBox(
-              height: 70,
+                  )),
             ),
-            Container(
-              height: 55,
-              width: MediaQuery.of(context).size.width*0.5,
-              decoration: (
-                  BoxDecoration(
-                    borderRadius: BorderRadius.circular(20),
-                    color: Colors.teal,
-
-                  )
-              ),
-              child: TextButton(onPressed: () {
-                Navigator.push(context, MaterialPageRoute(
-                  builder: (context)=> LoginScreen(),
-                ),);
-              },
-                child: Text('Login',
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 30,
-                  ),),
-                //color: Colors.teal,
-
+            Padding(
+              padding: const EdgeInsets.all(12),
+              child: Container(
+                width: MediaQuery.of(context).size.width*0.5,
+                height: 50,
+                alignment: Alignment.center,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(25),
+                  gradient: LinearGradient(colors: [Colors.teal.shade200,Colors.greenAccent.shade100]),
+                ),
+                child: TextButton(onPressed: (){
+                  Navigator.push(context, MaterialPageRoute(
+                      builder: (context)=> LoginScreen(),
+                  ),);
+                },
+                    child: Text('Login',
+                      style: TextStyle(
+                        color: Colors.teal[600],
+                        fontWeight: FontWeight.w500,
+                        fontSize: 30,
+                      ),)),
               ),
             ),
-            SizedBox(
-              height: 20,
-            ),
-            Container(
-              height: 55,
-              width: MediaQuery.of(context).size.width*0.5,
-              decoration: (
-                  BoxDecoration(
-                    borderRadius: BorderRadius.circular(20),
-                    color: Colors.teal,
-
-                  )
-              ),
-              child: TextButton(onPressed: () {
-                Navigator.push(context, MaterialPageRoute(
-                  builder: (context)=> SignupScreen(),
-                ),);
-              },
-                child: Text('Signup',
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 30,
-                  ),),
-                //color: Colors.teal,
-
+            Padding(
+              padding: const EdgeInsets.all(10),
+              child: Container(
+                width: MediaQuery.of(context).size.width*0.5,
+                height: 50,
+                alignment: Alignment.center,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(25),
+                  gradient: LinearGradient(colors: [Colors.teal.shade200,Colors.greenAccent.shade100]),
+                ),
+                child: TextButton(onPressed: (){
+                  Navigator.push(context, MaterialPageRoute(
+                    builder: (context)=> SignupScreen(),
+                  ),);
+                },
+                    child: Text('SignUp',
+                      style: TextStyle(
+                        color: Colors.teal[600],
+                        fontWeight: FontWeight.w500,
+                        fontSize: 30,
+                      ),)),
               ),
             ),
           ],
