@@ -258,7 +258,7 @@ class _BuyTicketScreenState extends State<BuyTicketScreen> {
                             child: Container(
                               //margin: EdgeInsets.all(8.0),
                               child: Text(
-                                'Save',
+                                'Buy',
                                 style: TextStyle(
                                   color: Colors.white,
                                   fontFamily: 'halter',
@@ -267,12 +267,7 @@ class _BuyTicketScreenState extends State<BuyTicketScreen> {
                               ),
                             ),
                             onPressed: () {
-                                Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                    builder: (context) => OfflineCommentScreen(),
-                                  ),
-                                );
+                              showDialog();
                             },
                           ),
                         ),
@@ -332,5 +327,59 @@ class _BuyTicketScreenState extends State<BuyTicketScreen> {
       cvvCode = creditCardModel.cvvCode;
       isCvvFocused = creditCardModel.isCvvFocused;
     });
+  }
+  void showDialog() {
+    showCupertinoDialog(
+      context: context,
+      builder: (context) {
+        return CupertinoAlertDialog(
+          title: Text("Buy Tickets"),
+          content: Text("Are you sure you want to Buy This Ticket?"),
+          actions: [
+            CupertinoDialogAction(
+                child: Text("Buy"),
+                onPressed: () {
+                  Navigator.push(context,MaterialPageRoute(
+                    builder: (context) => OfflineCommentScreen(),
+                  ),
+                  );
+                  ShowDialog();
+                }
+            ),
+            CupertinoDialogAction(
+              child: Text("Cancel"),
+              onPressed: () {
+                Navigator.push(context,MaterialPageRoute(
+                  builder: (context) =>OfflineCommentScreen(),
+                ),
+                );
+              },
+            ),
+          ],
+        );
+      },
+    );
+  }
+  void ShowDialog() {
+    showCupertinoDialog(
+      context: context,
+      builder: (context) {
+        return CupertinoAlertDialog(
+          title: Text("Buy Tickets"),
+          content: Text("Your Ticket Will Send To Your Email"),
+          actions: [
+            CupertinoDialogAction(
+                child: Text("Okay"),
+                onPressed: () {
+                  Navigator.push(context,MaterialPageRoute(
+                    builder: (context) => OfflineCommentScreen(),
+                  ),
+                  );
+                }
+            ),
+          ],
+        );
+      },
+    );
   }
 }

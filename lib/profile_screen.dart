@@ -1,3 +1,4 @@
+import 'package:auction/posts_profile_screen.dart';
 import 'package:auction/rating_profile_screen.dart';
 import 'package:auction/reviews_profile_screen.dart';
 import 'package:auction/editprofile_screen.dart';
@@ -138,7 +139,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 ),
               ),
               Padding(
-                padding: const EdgeInsets.only(top: 40,bottom:10),
+                padding: const EdgeInsets.only(top: 40),
                 child: Container(
                   width: MediaQuery.of(context).size.width*0.35,
                   decoration:
@@ -191,6 +192,37 @@ class _ProfileScreenState extends State<ProfileScreen> {
                         );
                       },
                           child:Text('Rate',
+                            style: TextStyle(
+                                fontSize: 20,
+                                fontWeight: FontWeight.w500,
+                                color: Colors.white
+                            ),)),
+                    ],
+                  ),
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.only(top: 10),
+                child: Container(
+                  width: MediaQuery.of(context).size.width*0.35,
+                  decoration:
+                  BoxDecoration(
+                      borderRadius: BorderRadius.circular(30),
+                      gradient: LinearGradient(colors: [Colors.teal.shade300,Colors.greenAccent.shade200])
+                  ),
+                  child: Row(
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Icon(Icons.star,
+                          color: Colors.greenAccent.shade200,),
+                      ),
+                      TextButton(onPressed: (){
+                        Navigator.push(context, MaterialPageRoute( builder: (context) => PostsProfileScreen(),
+                        ),
+                        );
+                      },
+                          child:Text('Posts',
                             style: TextStyle(
                                 fontSize: 20,
                                 fontWeight: FontWeight.w500,
