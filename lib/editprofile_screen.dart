@@ -19,8 +19,6 @@ class _SettingScreenState extends State<SettingScreen> {
   Future pickImage() async{
     await ImagePicker().pickImage(source:ImageSource.gallery);
   }
-
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(

@@ -1,6 +1,7 @@
 
 import 'package:auction/chat_screen.dart';
 import 'package:auction/editprofile_screen.dart';
+import 'package:auction/forget_password_screen.dart';
 import 'package:auction/login_screen.dart';
 import 'package:auction/message_screen.dart';
 import 'package:auction/online_auction.dart';
@@ -52,7 +53,7 @@ class MyApp extends StatelessWidget {
               child: CircularProgressIndicator(),
             );
           }
-          return ProfileScreen();
+          return ForgetPassword();
           },
       ),
       //  const SignupScreen(),
